@@ -8,11 +8,11 @@ def main():
             distance = int(line[1:])
             if direction == 'R':
                 dial += distance
-                if dial > 99:
+                while dial > 99:
                     dial -= 100
             else:
                 dial -= distance
-                if dial < 0:
+                while dial < 0:
                     dial += 100
             if dial == 0:
                 answer += 1
