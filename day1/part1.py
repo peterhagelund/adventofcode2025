@@ -1,7 +1,7 @@
 def main():
     answer = 0
     dial = 50
-    with open("puzzle_input.txt") as f:
+    with open('puzzle_input.txt') as f:
         for line in f:
             line = line.strip()
             direction = line[0]
@@ -16,8 +16,8 @@ def main():
                     dial += 100
             if dial == 0:
                 answer += 1
-    print(f"answer = {answer}")
+    print(f'answer = {answer}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
