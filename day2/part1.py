@@ -1,9 +1,7 @@
 def main():
     answer = 0
     with open('puzzle_input.txt') as f:
-        ids = f.read()
-        id_ranges = ids.split(',')
-        for id_range in id_ranges:
+        for id_range in f.read().split(','):
             parts = id_range.split('-')
             first_id = int(parts[0])
             last_id = int(parts[1])

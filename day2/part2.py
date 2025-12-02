@@ -1,13 +1,8 @@
 def is_invalid(id: int) -> bool:
     s = str(id)
     l = len(s)
-    for size in range(1, l // 2 + 1):
-        if l % size != 0:
-            continue
-        digits: set[str] = set()
-        for i in range(0, len(s), size):
-            digits.add(s[i : i + size])
-        if len(digits) == 1:
+    for size in range(1, (l >> 1) + 1):
+        if l % size == 0 and s == s[:size] * (l // size):
             return True
     return False
 
@@ -15,9 +10,7 @@ def is_invalid(id: int) -> bool:
 def main():
     answer = 0
     with open('puzzle_input.txt') as f:
-        ids = f.read()
-        id_ranges = ids.split(',')
-        for id_range in id_ranges:
+        for id_range in f.read().split(','):
             parts = id_range.split('-')
             first_id = int(parts[0])
             last_id = int(parts[1])
