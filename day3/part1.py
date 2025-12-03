@@ -2,18 +2,16 @@ def main():
     answer = 0
     with open('puzzle_input.txt') as f:
         for line in f:
-            bank = line.strip()
-            levels = sorted([c for c in bank], reverse=True)
+            bank = [int(c) for c in line.strip()]
+            levels = sorted(bank[:-1], reverse=True)
             v1 = levels[0]
             i1 = bank.index(v1)
-            if i1 == len(bank) - 1:
-                v1 = levels[1]
-                i1 = bank.index(v1)
+            joltage = str(v1)
             bank = bank[i1 + 1 :]
-            levels = sorted([c for c in bank], reverse=True)
+            levels = sorted(bank, reverse=True)
             v2 = levels[0]
-            joltage = int(v1) * 10 + int(v2)
-            answer += joltage
+            joltage += str(v2)
+            answer += int(joltage)
     print(f'answer = {answer}')
 
 

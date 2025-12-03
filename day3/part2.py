@@ -3,7 +3,6 @@ def determine_max_joltage(bank: list[int]) -> int:
     for remainder in range(11, -1, -1):
         l = len(bank)
         available = bank[: l - remainder]
-        assert len(available) > 0
         levels = sorted(available, reverse=True)
         b = levels[0]
         joltage += str(b)
