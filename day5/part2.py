@@ -16,7 +16,6 @@ def merge(ranges: set[range]):
                     ranges.remove(r1)
                     ranges.remove(r2)
                     ranges.add(r3)
-                    print(f'{r1} * {r2} -> {r3}')
                     merge_happened = True
                     break
             if merge_happened:
@@ -35,8 +34,6 @@ def main():
             parts = line.split('-')
             ranges.add(range(int(parts[0]), int(parts[1]) + 1))
     merge(ranges)
-    for r in ranges:
-        print(r, len(r))
     print(sum([len(r) for r in ranges]))
 
 
