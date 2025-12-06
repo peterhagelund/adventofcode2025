@@ -17,7 +17,7 @@ def main():
         result = 0 if operators[i] == '+' else 1
         for j in range(width):
             value = ''.join([v[j] for v in values])
-            number = int(value.strip())
+            number = int(value)
             if operators[i] == '+':
                 result += number
             else:
