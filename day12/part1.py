@@ -1,36 +1,27 @@
-def do_presents_fit(presents: list[list[str]], size: tuple[int, int], counts: list[int]) -> bool:
-    parts = [0] * len(presents)
-    for i in range(len(presents)):
-        for row in presents[i]:
-            parts[i] += sum([1 if p == '#' else 0 for p in row])
-    area = size[0] * size[1]
-    needed = 0
-    for i in range(len(counts)):
-        needed += counts[i] * parts[i]
-    if needed > area:
-        return False
-    return True
-
-
 def main():
     answer = 0
     with open('puzzle_input.txt') as f:
-        presents: list[list[str]] = []
-        present: list[str] = []
+        part_counts: list[int] = []
+        part_count = 0
         for line in f:
             line = line.strip()
             if line == '':
-                if len(present) > 0:
-                    presents.append(present)
-                    present = []
+                if part_count > 0:
+                    part_counts.append(part_count)
+                    part_count = 0
             elif line.endswith(':'):
-                _ = int(line[:-1])
+                pass
             elif '#' in line:
-                present.append(line)
+                part_count += sum([1 if c == '#' else 0 for c in line])
             else:
-                size, counts = line.split(':')
+                size, _counts = line.split(':')
                 width, length = [int(p) for p in size.split('x')]
-                if do_presents_fit(presents, (width, length), [int(c) for c in counts.strip().split(' ')]):
+                area = width * length
+                counts = [int(c) for c in _counts.strip().split(' ')]
+                needed = 0
+                for i in range(len(counts)):
+                    needed += counts[i] * part_counts[i]
+                if needed <= area:
                     answer += 1
     print(f'answer = {answer}')
 
