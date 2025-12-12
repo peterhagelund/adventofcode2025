@@ -1,11 +1,11 @@
 import sys
-from itertools import permutations
+from itertools import combinations
 
 
 def determine_min_presses(lights: list[bool], buttons: list[list[bool]]) -> int:
     min_presses = sys.maxsize
     for r in range(1, len(buttons) + 1):
-        for p in permutations(buttons, r=r):
+        for p in combinations(buttons, r=r):
             l = [False] * len(lights)
             presses = 0
             for button in p:
