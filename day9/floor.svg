@@ -4,7 +4,7 @@
 <defs>
 </defs>
 <g transform="translate(0,1000) scale(0.01,-0.01)">
-<rect x="0" y="0" width="100000" height="100000" stroke="black" stroke-width="100" fill="none" />
+<rect x="0" y="0" width="100000" height="100000" fill="none" stroke="black" stroke-width="100" />
 <path d="M97739,50344 L97739,51571" stroke="blue" stroke-width="100" />
 <path d="M97739,51571 L98274,51571" stroke="blue" stroke-width="100" />
 <path d="M98274,51571 L98274,52752" stroke="blue" stroke-width="100" />
@@ -501,9 +501,9 @@
 <path d="M98133,49137 L97585,49137" stroke="blue" stroke-width="100" />
 <path d="M97585,49137 L97585,50344" stroke="blue" stroke-width="100" />
 <path d="M97585,50344 L97739,50344" stroke="blue" stroke-width="100" />
-<path d="M4615,66437 L94737,66437" stroke="red" stroke-width="100" />
-<path d="M94737,66437 L94737,50322" stroke="red" stroke-width="100" />
 <path d="M94737,50322 L4615,50322" stroke="red" stroke-width="100" />
 <path d="M4615,50322 L4615,66437" stroke="red" stroke-width="100" />
+<path d="M4615,66437 L94737,66437" stroke="red" stroke-width="100" />
+<path d="M94737,50322 L94737,66437" stroke="red" stroke-width="100" />
 </g>
 </svg>
