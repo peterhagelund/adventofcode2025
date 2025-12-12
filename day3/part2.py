@@ -1,14 +1,11 @@
 def determine_max_joltage(bank: list[int]) -> int:
-    joltage = ''
+    joltage = 0
     for remainder in range(11, -1, -1):
-        l = len(bank)
-        available = bank[: l - remainder]
-        levels = sorted(available, reverse=True)
-        b = levels[0]
-        joltage += str(b)
+        b = max(bank[: len(bank) - remainder])
+        joltage = joltage * 10 + b
         i = bank.index(b)
         bank = bank[i + 1 :]
-    return int(joltage)
+    return joltage
 
 
 def main():
