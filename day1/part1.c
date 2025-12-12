@@ -16,14 +16,7 @@ int main(int argc, char *argv[]) {
             } else {
                 buffer[0] = '+';
             }
-            int distance = atoi(buffer);
-            dial += distance;
-            while (dial > 99) {
-                dial -= 100;
-            }
-            while (dial < 0) {
-                dial += 100;
-            }
+            dial = (dial + atoi(buffer)) % 100;
             if (dial == 0) {
                 answer++;
             }
