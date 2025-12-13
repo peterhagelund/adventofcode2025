@@ -58,7 +58,9 @@ def main():
             tiles.append(Tile((x, y)))
     lines = create_lines(tiles)
     for line in lines:
-        group.append(d.Line(line[0][X], line[0][Y], line[1][X], line[1][Y], stroke='blue', stroke_width=100))
+        group.append(d.Line(line[0][X], line[0][Y], line[1][X], line[1][Y], stroke='green', stroke_width=100))
+    for tile in tiles:
+        group.append(d.Rectangle(tile[X], tile[Y], 1, 1, stroke='red', stroke_width=100))
     _, upper_line = find_two_longest_lines(lines)
     x = upper_line[1][X]
     min_y = upper_line[1][Y] + 1
@@ -80,19 +82,19 @@ def main():
     sy = top_left[Y]
     ex = bottom_right[X]
     ey = sy
-    group.append(d.Line(sx, sy, ex, ey, stroke='red', stroke_width=100))
+    group.append(d.Line(sx, sy, ex, ey, stroke='blue', stroke_width=100))
     sx, sy = ex, ey
     ex = bottom_right[X]
     ey = bottom_right[Y]
-    group.append(d.Line(sx, sy, ex, ey, stroke='red', stroke_width=100))
+    group.append(d.Line(sx, sy, ex, ey, stroke='blue', stroke_width=100))
     sx, sy = ex, ey
     ex = top_left[X]
     ey = bottom_right[Y]
-    group.append(d.Line(sx, sy, ex, ey, stroke='red', stroke_width=100))
+    group.append(d.Line(sx, sy, ex, ey, stroke='blue', stroke_width=100))
     sx, sy = ex, ey
     ex = top_left[X]
     ey = top_left[Y]
-    group.append(d.Line(sx, sy, ex, ey, stroke='red', stroke_width=100))
+    group.append(d.Line(sx, sy, ex, ey, stroke='blue', stroke_width=100))
     answer = (bottom_right[X] - top_left[X] + 1) * (top_left[Y] - bottom_right[Y] + 1)
     print(f'answer = {answer}')
     drawing.save_svg('floor.svg')

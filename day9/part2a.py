@@ -92,7 +92,9 @@ def main():
             tiles.append(Tile((x, y)))
     lines = zip(tiles, tiles[1:] + tiles[:1])
     for line in lines:
-        group.append(d.Line(line[0][X], line[0][Y], line[1][X], line[1][Y], stroke='blue', stroke_width=100))
+        group.append(d.Line(line[0][X], line[0][Y], line[1][X], line[1][Y], stroke='green', stroke_width=100))
+    for tile in tiles:
+        group.append(d.Rectangle(tile[X], tile[Y], 1, 1, stroke='red', stroke_width=100))
     xs = sorted({x for x, _ in tiles})
     ys = sorted({y for _, y in tiles})
     floor = create_compressed_floor(tiles, xs, ys)
@@ -111,18 +113,18 @@ def main():
     sy = rectangle[0][Y]
     ex = rectangle[1][X]
     ey = sy
-    group.append(d.Line(sx, sy, ex, ey, stroke='red', stroke_width=100))
+    group.append(d.Line(sx, sy, ex, ey, stroke='blue', stroke_width=100))
     sx, sy = ex, ey
     ex = rectangle[1][X]
     ey = rectangle[1][Y]
-    group.append(d.Line(sx, sy, ex, ey, stroke='red', stroke_width=100))
+    group.append(d.Line(sx, sy, ex, ey, stroke='blue', stroke_width=100))
     sx, sy = ex, ey
     ex = rectangle[0][X]
-    group.append(d.Line(sx, sy, ex, ey, stroke='red', stroke_width=100))
+    group.append(d.Line(sx, sy, ex, ey, stroke='blue', stroke_width=100))
     sx, sy = ex, ey
     sx = rectangle[0][X]
     sy = rectangle[0][Y]
-    group.append(d.Line(sx, sy, ex, ey, stroke='red', stroke_width=100))
+    group.append(d.Line(sx, sy, ex, ey, stroke='blue', stroke_width=100))
     answer = rectangle[2]
     print(f'answer = {answer}')
     drawing.append(group)
